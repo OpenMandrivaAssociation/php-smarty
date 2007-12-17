@@ -15,7 +15,6 @@ Source1:        http://smarty.php.net/distributions/manual/en/Smarty-2.6.14-docs
 # makes a kolab package require this provides below
 Provides:       pear(Smarty.class.php)
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Smarty is a template engine for PHP.  More specifically, it 
