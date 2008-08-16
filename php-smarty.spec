@@ -2,20 +2,20 @@
 %undefine __find_provides
 %undefine __find_requires
 
-Summary:        Smarty - the compiling PHP template engine
-Name:           php-smarty
-Version:        2.6.20
-Release:        %mkrel 1
-License:        LGPL
-Group:          Development/Other
-URL:            http://smarty.php.net/
-Source0:        http://smarty.php.net/distributions/Smarty-%{version}.tar.gz
-Source1:        http://smarty.php.net/distributions/manual/en/Smarty-2.6.14-docs.tar.gz
+Summary:	Smarty - the compiling PHP template engine
+Name:		php-smarty
+Version:	2.6.20
+Release:	%mkrel 1
+License:	LGPL
+Group:		Development/Other
+URL:		http://www.smarty.net/
+Source0:	http://www.smarty.net/distributions/Smarty-%{version}.tar.gz
+Source1:	http://www.smarty.net/distributions/manual/en/Smarty-2.6.14-docs.tar.gz
 # XXX - some bug in the php-pear find-requires stuff
 # makes a kolab package require this provides below
-Provides:       pear(Smarty.class.php)
-BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Provides:	pear(Smarty.class.php)
+BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Smarty is a template engine for PHP.  More specifically, it 
@@ -41,11 +41,11 @@ the application logic without the need to restructure templates,
 and the template designer can make changes to templates without
 breaking application logic. 
 
-%package        manual
-Summary:        The HTML manual for Smarty
-Group:          Development/Other
+%package	manual
+Summary:	The HTML manual for Smarty
+Group:		Development/Other
 
-%description        manual
+%description	manual
 The HTML manual for Smarty
 
 %prep
