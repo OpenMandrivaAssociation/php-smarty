@@ -4,13 +4,14 @@
 
 Summary:	Smarty - the compiling PHP template engine
 Name:		php-smarty
-Version:	2.6.22
+Version:	2.6.23
 Release:	%mkrel 1
 License:	LGPL
 Group:		Development/Other
 URL:		http://www.smarty.net/
 Source0:	http://www.smarty.net/distributions/Smarty-%{version}.tar.gz
 Source1:	http://www.smarty.net/distributions/manual/en/Smarty-2.6.14-docs.tar.gz
+Source2:	smarty.gif
 # XXX - some bug in the php-pear find-requires stuff
 # makes a kolab package require this provides below
 Provides:	pear(Smarty.class.php)
@@ -72,7 +73,7 @@ find . -type f | xargs chmod 644
 %{__mkdir_p} %{buildroot}%{_var}/www/icons
 
 %{__cp} -aRf libs/* %{buildroot}%{_datadir}/smarty/
-%{__install} -m0644 misc/smarty_icon.gif %{buildroot}/var/www/icons/smarty.gif
+%{__install} -m0644 %{SOURCE2} %{buildroot}/var/www/icons/smarty.gif
 
 %clean
 %{__rm} -rf %{buildroot}
