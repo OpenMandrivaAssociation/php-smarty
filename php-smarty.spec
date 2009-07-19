@@ -5,7 +5,7 @@
 Summary:	Smarty - the compiling PHP template engine
 Name:		php-smarty
 Version:	2.6.25
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	LGPL
 Group:		Development/Other
 URL:		http://www.smarty.net/
