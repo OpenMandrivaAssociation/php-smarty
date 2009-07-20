@@ -2,21 +2,18 @@
 %undefine __find_provides
 %undefine __find_requires
 
-Summary:	Smarty - the compiling PHP template engine
+Summary:	The compiling PHP template engine
 Name:		php-smarty
 Version:	2.6.25
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	LGPL
 Group:		Development/Other
 URL:		http://www.smarty.net/
 Source0:	http://www.smarty.net/distributions/Smarty-%{version}.tar.gz
 Source1:	http://www.smarty.net/distributions/manual/en/Smarty-2.6.14-docs.tar.gz
 Source2:	smarty.gif
-# XXX - some bug in the php-pear find-requires stuff
-# makes a kolab package require this provides below
-Provides:	pear(Smarty.class.php)
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Smarty is a template engine for PHP.  More specifically, it 
@@ -42,37 +39,26 @@ the application logic without the need to restructure templates,
 and the template designer can make changes to templates without
 breaking application logic. 
 
-%package	manual
+%package doc
 Summary:	The HTML manual for Smarty
 Group:		Development/Other
+Obsoletes:  %{name}-manual
 
-%description	manual
+%description doc
 The HTML manual for Smarty
 
 %prep
-
 %setup -q -n Smarty-%{version} -a1
-
-# clean up CVS stuff
-for i in `find . -type d -name CVS` `find . -type f -name .cvs\*` `find . -type f -name .#\*`; do
-    if [ -e "$i" ]; then %{__rm} -r $i; fi >&/dev/null
-done
-
-# fix dir perms
-find . -type d | xargs chmod 755
-
-# fix file perms
-find . -type f | xargs chmod 644
 
 %build
 
 %install
 %{__rm} -rf %{buildroot}
 
-%{__mkdir_p} %{buildroot}%{_datadir}/smarty
+%{__mkdir_p} %{buildroot}%{_datadir}/php/smarty
 %{__mkdir_p} %{buildroot}%{_var}/www/icons
 
-%{__cp} -aRf libs/* %{buildroot}%{_datadir}/smarty/
+%{__cp} -aRf libs/* %{buildroot}%{_datadir}/php/smarty
 %{__install} -m0644 %{SOURCE2} %{buildroot}/var/www/icons/smarty.gif
 
 %clean
@@ -81,9 +67,9 @@ find . -type f | xargs chmod 644
 %files
 %defattr(-,root,root)
 %doc BUGS COPYING.lib ChangeLog FAQ INSTALL NEWS README RELEASE_NOTES TODO
-%{_datadir}/smarty
+%{_datadir}/php/smarty
 %{_var}/www/icons/smarty.gif
 
-%files manual
+%files doc
 %defattr(-,root,root)
 %doc manual/*
