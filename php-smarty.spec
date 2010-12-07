@@ -4,16 +4,16 @@
 
 Summary:	The compiling PHP template engine
 Name:		php-smarty
-Version:	2.6.26
-Release:	%mkrel 3
+Version:	3.0.5
+Release:	%mkrel 1
 License:	LGPL
 Group:		Development/Other
 URL:		http://www.smarty.net/
 Source0:	http://www.smarty.net/distributions/Smarty-%{version}.tar.gz
-Source1:	http://www.smarty.net/distributions/manual/en/Smarty-2.6.14-docs.tar.gz
+Source1:	http://www.smarty.net/files/docs/manual-en-3.0.zip
 Source2:	smarty.gif
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Smarty is a template engine for PHP.  More specifically, it 
@@ -61,15 +61,19 @@ The HTML manual for Smarty
 %{__cp} -aRf libs/* %{buildroot}%{_datadir}/php/smarty
 %{__install} -m0644 %{SOURCE2} %{buildroot}/var/www/icons/smarty.gif
 
+# fix attribs
+find %{buildroot}%{_datadir}/php/smarty -type d -exec chmod 755 {} \;
+find %{buildroot}%{_datadir}/php/smarty -type f -exec chmod 644 {} \;
+
 %clean
 %{__rm} -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc BUGS COPYING.lib ChangeLog FAQ INSTALL NEWS README RELEASE_NOTES TODO
+%doc COPYING.lib README SMARTY2_BC_NOTES
 %{_datadir}/php/smarty
 %{_var}/www/icons/smarty.gif
 
 %files doc
 %defattr(-,root,root)
-%doc manual/*
+%doc manual-en/*
