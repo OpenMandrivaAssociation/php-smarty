@@ -4,15 +4,16 @@
 
 Summary:	The compiling PHP template engine
 Name:		php-smarty
-Version:	3.0.7
-Release:	%mkrel 2
+Version:	3.1.5
+Release:	%mkrel 1
 License:	LGPL
 Group:		Development/Other
 URL:		http://www.smarty.net/
 Source0:	http://www.smarty.net/distributions/Smarty-%{version}.tar.gz
-Source1:	http://www.smarty.net/files/docs/manual-en-3.0.zip
+Source1:	http://www.smarty.net/files/docs/manual-en-%{version}.zip
 Source2:	smarty.gif
 BuildArch:	noarch
+Buildrequires:	unzip
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -70,7 +71,7 @@ find %{buildroot}%{_datadir}/php/smarty -type f -exec chmod 644 {} \;
 
 %files
 %defattr(-,root,root)
-%doc COPYING.lib README SMARTY2_BC_NOTES
+%doc COPYING.lib README *.txt
 %{_datadir}/php/smarty
 %{_var}/www/icons/smarty.gif
 
