@@ -4,7 +4,7 @@
 
 Summary:	The compiling PHP template engine
 Name:		php-smarty
-Version:	3.1.5
+Version:	3.1.8
 Release:	%mkrel 1
 License:	LGPL
 Group:		Development/Other
