@@ -5,7 +5,7 @@
 Summary:	The compiling PHP template engine
 Name:		php-smarty
 Version:	3.1.10
-Release:	%mkrel 1
+Release:	1
 License:	LGPL
 Group:		Development/Other
 URL:		http://www.smarty.net/
@@ -14,7 +14,6 @@ Source1:	http://www.smarty.net/files/docs/manual-en-3.1.8.zip
 Source2:	smarty.gif
 BuildArch:	noarch
 Buildrequires:	unzip
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Smarty is a template engine for PHP.  More specifically, it 
@@ -54,27 +53,21 @@ The HTML manual for Smarty
 %build
 
 %install
-%{__rm} -rf %{buildroot}
 
 %{__mkdir_p} %{buildroot}%{_datadir}/php/smarty
 %{__mkdir_p} %{buildroot}%{_var}/www/icons
 
-%{__cp} -aRf libs/* %{buildroot}%{_datadir}/php/smarty
+%{__cp} -rp libs/* %{buildroot}%{_datadir}/php/smarty
 %{__install} -m0644 %{SOURCE2} %{buildroot}/var/www/icons/smarty.gif
 
 # fix attribs
 find %{buildroot}%{_datadir}/php/smarty -type d -exec chmod 755 {} \;
 find %{buildroot}%{_datadir}/php/smarty -type f -exec chmod 644 {} \;
 
-%clean
-%{__rm} -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc COPYING.lib README *.txt
 %{_datadir}/php/smarty
 %{_var}/www/icons/smarty.gif
 
 %files doc
-%defattr(-,root,root)
 %doc manual-en/*
