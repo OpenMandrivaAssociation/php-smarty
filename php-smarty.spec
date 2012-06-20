@@ -54,11 +54,11 @@ The HTML manual for Smarty
 
 %install
 
-%{__mkdir_p} %{buildroot}%{_datadir}/php/smarty
-%{__mkdir_p} %{buildroot}%{_var}/www/icons
+install -d %{buildroot}%{_datadir}/php/smarty
+install -d %{buildroot}%{_var}/www/icons
 
-%{__cp} -rp libs/* %{buildroot}%{_datadir}/php/smarty
-%{__install} -m0644 %{SOURCE2} %{buildroot}/var/www/icons/smarty.gif
+cp -rp libs/* %{buildroot}%{_datadir}/php/smarty
+install -m0644 %{SOURCE2} %{buildroot}/var/www/icons/smarty.gif
 
 # fix attribs
 find %{buildroot}%{_datadir}/php/smarty -type d -exec chmod 755 {} \;
