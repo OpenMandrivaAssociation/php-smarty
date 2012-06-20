@@ -4,13 +4,13 @@
 
 Summary:	The compiling PHP template engine
 Name:		php-smarty
-Version:	3.1.8
+Version:	3.1.10
 Release:	%mkrel 1
 License:	LGPL
 Group:		Development/Other
 URL:		http://www.smarty.net/
 Source0:	http://www.smarty.net/distributions/Smarty-%{version}.tar.gz
-Source1:	http://www.smarty.net/files/docs/manual-en-%{version}.zip
+Source1:	http://www.smarty.net/files/docs/manual-en-3.1.8.zip
 Source2:	smarty.gif
 BuildArch:	noarch
 Buildrequires:	unzip
