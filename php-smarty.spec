@@ -1,14 +1,10 @@
-# (oe) undefining these makes the build _real_ quick.
-%undefine __find_provides
-%undefine __find_requires
-
 Summary:	The compiling PHP template engine
 Name:		php-smarty
-Version:	3.1.10
-Release:	7
-License:	LGPLv2
+Version:	3.1.21
+Release:	1
+License:	LGPL
 Group:		Development/Other
-Url:		http://www.smarty.net/
+URL:		http://www.smarty.net/
 Source0:	http://www.smarty.net/files/Smarty-%{version}.tar.gz
 Source1:	http://www.smarty.net/files/docs/manual-en-3.1.8.zip
 Source2:	smarty.gif
@@ -42,17 +38,18 @@ breaking application logic.
 %package doc
 Summary:	The HTML manual for Smarty
 Group:		Development/Other
-Obsoletes:	%{name}-manual
+Obsoletes:  %{name}-manual
 
 %description doc
 The HTML manual for Smarty
 
 %prep
-%setup -qn Smarty-%{version} -a1
+%setup -q -n Smarty-%{version} -a1
 
 %build
 
 %install
+
 install -d %{buildroot}%{_datadir}/php/smarty
 install -d %{buildroot}%{_var}/www/icons
 
@@ -70,4 +67,3 @@ find %{buildroot}%{_datadir}/php/smarty -type f -exec chmod 644 {} \;
 
 %files doc
 %doc manual-en/*
-
