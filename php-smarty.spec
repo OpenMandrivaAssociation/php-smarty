@@ -1,7 +1,7 @@
 Summary:	The compiling PHP template engine
 Name:		php-smarty
 Version:	3.1.21
-Release:	3
+Release:	4
 License:	LGPL
 Group:		Development/Other
 URL:		http://www.smarty.net/
