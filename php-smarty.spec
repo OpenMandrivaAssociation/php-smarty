@@ -4,7 +4,7 @@ Version:	3.1.21
 Release:	5
 License:	LGPL
 Group:		Development/Other
-URL:		http://www.smarty.net/
+URL:		https://www.smarty.net/
 Source0:	http://www.smarty.net/files/Smarty-%{version}.tar.gz
 Source1:	http://www.smarty.net/files/docs/manual-en-3.1.8.zip
 Source2:	smarty.gif
